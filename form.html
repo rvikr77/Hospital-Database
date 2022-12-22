@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width:device-width, initial scale: 1.0;">
+    <title>Trial</title>
+   
+    <style>
+      #h{
+        width: 350px;
+  border: 5px solid greenyellow;
+  background-color:black;
+  padding: 10px;
+  margin: 15px;
+      }
+      body{
+        color:greenyellow;
+        background-color: black;
+      }
+      #btn1{
+      background-color:rgb(255, 117, 62);
+      color:black;
+      border: 2px solid black;
+      border-radius:10%;
+      cursor:pointer;
+      }
+       .popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 79%;
+  margin-left: -80px;
+}
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 79%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #557 transparent transparent transparent;
+}
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+      </style>
+      <script>
+        var x=true;
+             function ChangeColor()  
+             {  
+                  document.getElementById('btn1').style.color='Red';
+                  document.getElementById('btn1').style.borderColor='Red';
+                  setTimeout("ChangeColor2()",100);  
+                }  
+             function ChangeColor2()  
+             {  
+                  document.getElementById('btn1').style.color='Blue';
+                  document.getElementById('btn1').style.borderColor='Blue';
+                  setTimeout("ChangeColor3()",100);  
+             }  
+             function ChangeColor3()  
+             {  
+                  document.getElementById('btn1').style.color='Green';  
+                  document.getElementById('btn1').style.borderColor='Green';
+                  if(x==true)setTimeout("ChangeColor()",100); 
+                  else{
+                   document.getElementById('btn1').style.color='Black';
+                   document.getElementById('btn1').style.borderColor='Black';}
+             }  
+             
+             function nothing(){x=false;}
+             function n(){x=true;ChangeColor();}
+       
+       </script> 
+    </head>
+<body>
+    <header><span onclick="window.location.reload();"style="cursor:pointer;"><img src="Hospital.png" width="20px"height="20px"><span style="font-size:25px;"> Hospital</span></span><hr></header>
+    <img style="float:right;position:absolute;right:200px;top:100px;" height="400" width="400" src="doc.jpg" >
+    <div id="h" align="left"style="float:left;">
+
+<form  method="post" action="insert.php" align="center">
+    <label>Name:</label><br>
+    <input type="text" id="fname" name="fname" placeholder="Name"required><br><br>
+    <label>Age:</label><br>
+    <input type="text" id="age" name="age" placeholder="Age"required><br><br>
+   <label>BP and Pulse:</label><br>
+    <input type="text" id="bp" name="bp" placeholder="Bp and pulse"required><br><br>
+    <label>Allergies</label><br>
+    <input type="text" id="allergies" name="allergies" placeholder="Any allergies"required><br><br>
+    <label>Weight and Height</label><br>
+    <input type="text" id="wh" name="wh" placeholder="Weight and height"required><br><br>
+    <label>Problem description</label><br>
+    <textarea id="d" name="d" placeholder="Describe your problem"required></textarea><br>
+    <br>
+     <input type="checkbox" id="op" name="op" value="op" required>
+  <label for="op">By checking the tickbox, you agree to all the privacy policies and terms of services.</label><br>
+<br>    
+<input type="submit" value="Submit" style="font-size:20px;border-radius: 20;" onmouseover="n()"onmouseout="nothing()"  id="btn1">
+    <input type="reset"value="reset form" style="background-color:black;border:2px solid green;color:rgb(145, 255, 0);border-radius: 20;cursor:pointer;" >
+  </form> 
+  </div>
+<script>
+function myFunction() {
+  var popup = document.getElementById("Popup1");
+  popup.classList.toggle("show");
+}
+</script>
+
+  <footer  class="popup" onclick="myFunction()" style="clear:both;float:left;"><hr><span style="font-size:15px;text-decoration:none;color:purple;">Privacy Policy</a>
+<span class="popuptext" id="Popup1">Form data that we collect is stored in XAMPP database only. See apachefriends.org privacy policy. Data that we can access is shared only with hospital staff with your consent. Data deletion in our accessible database is possible upon request!</span></footer>
+ 
+</body>
+</html>
