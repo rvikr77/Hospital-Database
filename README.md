@@ -1,4 +1,4 @@
-# FullStack_first_website
+# Hospital Database
 Developed a website using HTML, CSS, JavaScript, PHP and MySQL. Could be used in hospitals by doctors and patients to save time.
 
 Steps to Execute the program using Xampp:
