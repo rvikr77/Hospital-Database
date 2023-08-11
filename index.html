@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Database</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="head1"><a href="index.html"><img src="./images/logo.png" id="logo" /></a>
+    <h2 style="display: inline-block;margin:0;margin-left:1%;"> <i> Sharing is Caring!</i></h2>
+    </header><hr><br>
+    <div class="parent">
+    <div  id="forme" style="padding:2%;color: lime;background-color: grey;">
+        <h1>Fill the form!</h1>
+    <form action="./check.php" method="POST" >
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Name" required><br>
+        <label for="ph">Phone number:</label><br>
+        <input type="tel" id="ph" name="ph" required><br>
+        <label for="a">Age:</label><br>
+        <input type="number" id="a" name="a" required><br>
+        <label for ="gender">Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Female</label><br>
+        <label for="bp">Blood pressure:</label><br>
+        <input type="number" id="bp" name="bp1" required placeholder="Systolic"> /
+        <input type="number" id="bp" name="bp2" required placeholder="Diastolic"><br>
+        <label for="pulse">Pulse:</label><br>
+        <input type="number" id="pulse" name="pulse" required><br>
+        <label for="allergies">Allergies:</label><br>
+        <input type="text" id="allergies" name="allergies"><br>
+        <label for="h">Height:</label><br>
+        <input type="number" id="h" name="h" required placeholder="in cm"><br>
+        <label for="w">Weight:</label><br>
+        <input type="number" id="w" name="w" required placeholder="in kgs"><br>
+        <label for="pd">Problem Description:</label><br>
+        <textarea id="pd" name="pd"  placeholder="Describe your problem" ></textarea><br>
+        <input type="submit" id="sub" value="Submit"> <input type="reset" id="reset"value="Reset">     
+    </form>
+</div>
+<div class="two">
+<div class="wrapper" >
+    <div class="typing-demo">
+         Health is Wealth.
+</div>
+</div>
+</div>
+    </div>
+    <br>
+<hr>
+<div style="display:block;">
+<footer id="footer1" "><br>
+    <list>
+        <ul><a href="terms.html" style="color: black;">Terms of Service</a></ul>
+        <ul><a href="contact.html" style="color: black;">Contact</a></ul>
+        <ul><a href="privacy.html" style="color: black;">Privacy Policy</a></ul>
+    </list>
+    <br>
+</footer>
+</div>
+</body>
+</html>
