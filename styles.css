@@ -12,14 +12,7 @@ body{
     height: 3vw;
     width:5vw;
 }
-#forme{
-    border: 2px solid lime;
-    width:50%;
-    height:100%;
-    font-size: 3vh;
-    padding:10%;
-    opacity:0.7;
-}
+
 #head1{
     background:none;
     padding:1%;
