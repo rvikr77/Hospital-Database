@@ -79,6 +79,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $moveRow['HEIGHT'], $moveRow['WEIGHT'], $moveRow['PATIENT_DETAILS']);
         mysqli_stmt_execute($stmt);
     }
+    echo '<script>
+            window.location.href = "doc.php";
+            </script>';
+
 }
 
 $sql = "SELECT * FROM HOSPITAL;";
