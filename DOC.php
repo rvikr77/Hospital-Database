@@ -16,11 +16,6 @@
             padding:2%;
             width:fit-content;
         }
-        body{
-            background-image: url(./images/doct.jpeg);
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
         #but{
             color:lime;
             background-color: black;
