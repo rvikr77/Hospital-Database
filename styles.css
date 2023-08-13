@@ -1,8 +1,4 @@
-body{
-    background-image: url(./images/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 input{
     max-width: 40%;
     font-size: 3vh;
