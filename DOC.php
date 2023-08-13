@@ -47,20 +47,21 @@ if (!$conn) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['delete'])) {
         $idToDelete = $_POST['delete'];
+        $nameToDelete = $_POST['delete1'];
 
         // Get data to move
-        $moveSql = "SELECT * FROM HOSPITAL WHERE PH = ?";
+        $moveSql = "SELECT * FROM HOSPITAL WHERE PH = ? AND NAME= ?";
         $stmt = mysqli_prepare($conn, $moveSql);
-        mysqli_stmt_bind_param($stmt, "i", $idToDelete);
+        mysqli_stmt_bind_param($stmt, "is", $idToDelete,$nameToDelete);
         mysqli_stmt_execute($stmt);
 
         $moveResult = mysqli_stmt_get_result($stmt);
         $moveRow = mysqli_fetch_assoc($moveResult);
 
         // Delete the row from the main table
-        $deleteSql = "DELETE FROM HOSPITAL WHERE PH = ?";
+        $deleteSql = "DELETE FROM HOSPITAL WHERE PH = ? AND NAME=?";
         $stmt = mysqli_prepare($conn, $deleteSql);
-        mysqli_stmt_bind_param($stmt, "i", $idToDelete);
+        mysqli_stmt_bind_param($stmt, "is", $idToDelete,$nameToDelete);
         mysqli_stmt_execute($stmt);
 
         // Insert or update the row in the storage table
@@ -91,6 +92,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     echo "<tr><td colspan='2'>
             <form method='post' action=''>
             <input type='hidden' name='delete' value='{$row['PH']}' />
+            <input type='hidden' name='delete1' value='{$row['NAME']}' />
             <button type='submit' id='but'>Done!</button>
             </form>
           </td></tr>";
@@ -102,7 +104,7 @@ mysqli_close($conn);
 ?>
 
 <div style="display:block;">
-<footer id="footer1" "><br>
+<footer id="footer1"><br>
     <list>
         <ul><a href="terms.html" style="color: black;">Terms of Service</a></ul>
         <ul><a href="privacy.html" style="color: black;">Privacy Policy</a></ul>
