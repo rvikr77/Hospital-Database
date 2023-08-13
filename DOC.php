@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="30">
+<link rel="stylesheet" href="styles.css">
     <style>
         #tables{
             border:2px solid black;
@@ -32,6 +33,10 @@
     </style>
 </head>
 <body>
+
+    <header id="head1"><a href="doc.php"><img src="./images/logo.png" id="logo" /></a>
+    <h2 style="display: inline-block;margin:0;margin-left:1%;"> <i> Sharing is Caring!</i></h2>
+    </header><hr><br>
   <h1>Patient details ...</h1>
   <?php
 require_once "config.php";
@@ -101,6 +106,14 @@ while ($row = mysqli_fetch_assoc($result)) {
 mysqli_close($conn);
 ?>
 
-
+<div style="display:block;">
+<footer id="footer1" "><br>
+    <list>
+        <ul><a href="terms.html" style="color: black;">Terms of Service</a></ul>
+        <ul><a href="privacy.html" style="color: black;">Privacy Policy</a></ul>
+    </list>
+    <br>
+</footer>
+</div>
 </body>
 </html>
