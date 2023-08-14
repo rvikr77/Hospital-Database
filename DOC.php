@@ -78,11 +78,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $moveRow['BP1'], $moveRow['BP2'], $moveRow['PULSE'], $moveRow['ALLERGIES'],
             $moveRow['HEIGHT'], $moveRow['WEIGHT'], $moveRow['PATIENT_DETAILS']);
         mysqli_stmt_execute($stmt);
-    }
+    
     echo '<script>
             window.location.href = "doc.php";
             </script>';
 
+    }
+
+
+    if (isset($_POST['del'])) {
+        $idToDelete = $_POST['del'];
+        $nameToDelete = $_POST['del1'];
+
+        // Get data to move
+        $moveSql = "SELECT * FROM HOSPITAL WHERE PH = ? AND NAME= ?";
+        $stmt = mysqli_prepare($conn, $moveSql);
+        mysqli_stmt_bind_param($stmt, "is", $idToDelete,$nameToDelete);
+        mysqli_stmt_execute($stmt);
+
+        $moveResult = mysqli_stmt_get_result($stmt);
+        $moveRow = mysqli_fetch_assoc($moveResult);
+
+        // Delete the row from the main table
+        $deleteSql = "DELETE FROM HOSPITAL WHERE PH = ? AND NAME=?";
+        $stmt = mysqli_prepare($conn, $deleteSql);
+        mysqli_stmt_bind_param($stmt, "is", $idToDelete,$nameToDelete);
+        mysqli_stmt_execute($stmt);
+
+    
+    echo '<script>
+            window.location.href = "doc.php";
+            </script>';
+    }
 }
 
 $sql = "SELECT * FROM HOSPITAL;";
@@ -97,9 +124,17 @@ while ($row = mysqli_fetch_assoc($result)) {
             <form method='post' action=''>
             <input type='hidden' name='delete' value='{$row['PH']}' />
             <input type='hidden' name='delete1' value='{$row['NAME']}' />
-            <button type='submit' id='but'>Done!</button>
+            <button type='submit' id='but'>Done/Update!</button>
             </form>
-          </td></tr>";
+          </td>
+          <td colspan='2'>
+            <form method='post' action=''>
+            <input type='hidden' name='del' value='{$row['PH']}' />
+            <input type='hidden' name='del1' value='{$row['NAME']}' />
+            <button type='submit' id='but'>Delete/Not update!</button>
+            </form>
+          </td>
+          </tr>";
     echo "</table><br></div><br>";
 }
 
