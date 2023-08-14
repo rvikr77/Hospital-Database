@@ -90,15 +90,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $idToDelete = $_POST['del'];
         $nameToDelete = $_POST['del1'];
 
-        // Get data to move
-        $moveSql = "SELECT * FROM HOSPITAL WHERE PH = ? AND NAME= ?";
-        $stmt = mysqli_prepare($conn, $moveSql);
-        mysqli_stmt_bind_param($stmt, "is", $idToDelete,$nameToDelete);
-        mysqli_stmt_execute($stmt);
-
-        $moveResult = mysqli_stmt_get_result($stmt);
-        $moveRow = mysqli_fetch_assoc($moveResult);
-
         // Delete the row from the main table
         $deleteSql = "DELETE FROM HOSPITAL WHERE PH = ? AND NAME=?";
         $stmt = mysqli_prepare($conn, $deleteSql);
