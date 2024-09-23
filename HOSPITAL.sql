@@ -28,3 +28,9 @@ CREATE TABLE `STORAGE`(
     `PATIENT_DETAILS` VARCHAR(50),
     PRIMARY KEY(`PH`, `NAME`)
 );
+
+-- Add a composite index to HOSPITAL table
+CREATE INDEX idx_hospital_ph_name ON HOSPITAL (PH, NAME);
+
+-- Add a composite index to STORAGE table
+CREATE INDEX idx_storage_ph_name ON STORAGE (PH, NAME);

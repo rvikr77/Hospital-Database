@@ -3,74 +3,38 @@
 <head>
   <title>Redirect!</title>
   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
   <h1>Redirecting...</h1>
-  <?php
-  // Check if the form is submitted
-  require_once "config.php";
-  
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the form inputs
-    $name = $_POST['name'];
-    $ph = $_POST['ph'];
 
-    $db = "HOSPITALDB";
+  <script>
+    $(document).ready(function() {
+      // Collect form data from previous page or form submission
+      var data = {
+        name: "<?php echo $_POST['name']; ?>",
+        ph: "<?php echo $_POST['ph']; ?>"
+      };
 
-    $conn = mysqli_connect($server, $user, $pass, $db);
-
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-
-    $query = "SELECT `AGE`, `GENDER`, `BP1`, `BP2`, `PULSE`, `ALLERGIES`, `HEIGHT`, `WEIGHT`, `PATIENT_DETAILS` FROM STORAGE WHERE `PH`='$ph' AND `NAME`='$name'";
-    $result = mysqli_query($conn, $query);
-
-    if ($result) {
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_assoc($result);
-            $a = $row['AGE'];
-            $g = $row['GENDER'];
-            $bp1 = $row['BP1'];
-            $bp2 = $row['BP2'];
-            $pulse = $row['PULSE'];
-            $al = $row['ALLERGIES'];
-            $h = $row['HEIGHT'];
-            $w = $row['WEIGHT'];
-            $pd = $row['PATIENT_DETAILS'];
-        } else {
-            echo '<script>
-            alert("New user!");
-            window.location.href = "index.html";
-            </script>';
-            exit;
+      $.ajax({
+        url: 'http://localhost/Hospital-Database-main/Hospital-Database-main/api.php?action=transfer',
+        type: 'TRANSFER',
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        success: function(response) {
+          console.log(response);
+          $('body').append("<p>Record transferred successfully.</p>");
+          setTimeout(function(){
+            window.location.href = "./index.html";
+          }, 3000);
+        },
+        error: function(xhr, status, error) {
+          console.error('Error: Could not connect to API', error);
+          $('body').append("<p>Error: Could not connect to API.</p>");
         }
-    } else {
-        echo "Error: " . mysqli_error($conn);
-    }
-
-    $sql="INSERT INTO HOSPITAL (PH, NAME, AGE, GENDER, BP1, BP2, PULSE, ALLERGIES, HEIGHT, WEIGHT, PATIENT_DETAILS) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ON DUPLICATE KEY UPDATE 
-            NAME = VALUES(NAME), AGE = VALUES(AGE), GENDER = VALUES(GENDER), BP1 = VALUES(BP1), BP2 = VALUES(BP2), 
-            PULSE = VALUES(PULSE), ALLERGIES = VALUES(ALLERGIES), HEIGHT = VALUES(HEIGHT), WEIGHT = VALUES(WEIGHT), 
-            PATIENT_DETAILS = VALUES(PATIENT_DETAILS)";
-   $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "isisiiisiis", $ph,$name,$a,$g,$bp1,$bp2,$pulse,$al,$h,$w,$pd);
-    if (mysqli_stmt_execute($stmt)) {
-      echo "Response recorded successfully.";
-    } else {
-      echo "Error: " . mysqli_error($conn);
-    }
-
-    // Close the statement
-    mysqli_stmt_close($stmt);
-    // Close the database connection
-    mysqli_close($conn);}
-    ?>
-    <script>
-      window.setTimeout(function(){window.location.href = "./index.html";}, 3000);
-    </script>
+      });
+    });
+  </script>
 </body>
 </html>
