@@ -113,7 +113,7 @@ if (!isset($_SESSION['role'])) {
     </footer>
     </div>
     <script>
-        const SESSION_TIMEOUT = 10 * 1000; // 10 seconds in milliseconds
+        const SESSION_TIMEOUT = 30 * 1000; // 10 seconds in milliseconds
         let lastActivity = Date.now();
 
         // Function to check for session expiration

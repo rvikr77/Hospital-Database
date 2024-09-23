@@ -19,7 +19,7 @@
 
       $.ajax({
         url: 'http://localhost/Hospital-Database-main/Hospital-Database-main/api.php?action=transfer',
-        type: 'TRANSFER',
+        type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(data),
         success: function(response) {
