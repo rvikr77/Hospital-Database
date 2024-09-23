@@ -26,7 +26,7 @@
           console.log(response);
           $('body').append("<p>Record transferred successfully.</p>");
           setTimeout(function(){
-            window.location.href = "./index.html";
+            window.location.href = "./index.php";
           }, 3000);
         },
         error: function(xhr, status, error) {

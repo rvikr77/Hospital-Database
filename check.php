@@ -35,7 +35,7 @@
           console.log(response);
           $('body').append("<p>Response recorded successfully.</p>");
           setTimeout(function(){
-            window.location.href = "./index.html";
+            window.location.href = "./index.php";
           }, 3000);
         },
         error: function(xhr, status, error) {

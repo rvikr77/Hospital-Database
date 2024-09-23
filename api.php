@@ -1,5 +1,6 @@
 <?php
 // api.php
+session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -170,6 +171,27 @@ switch ($action) {
             }
             break;
     
+    case 'credentials':
+        $username = $data['username'];
+    $password = $data['password'];
+
+    // Query to check credentials (use prepared statements to prevent SQL injection)
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+    $stmt->bind_param("ss", $username, $password); // Adjust password handling as needed (e.g., hashing)
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['role'] = $user['role']; // Store role in session
+        echo json_encode(['success' => true]);
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Invalid credentials.']);
+    }
+
+    $stmt->close();
+        break;
     default:
         echo json_encode(["message" => "Invalid action"]);
         break;

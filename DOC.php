@@ -1,10 +1,25 @@
+<?php
+session_start();
+
+// Update last activity time
+$_SESSION['last_activity'] = time();
+
+// Check if the user is logged in and has the doctor role
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'doctor') {
+    header('Location: ./allow_patients.php'); // Redirect to login page if not logged in or not a doctor
+    exit();
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>View db</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="30">
+  <meta http-equiv="refresh" content="60">
   <link rel="stylesheet" href="styles.css">
   <style>
     #tables {
@@ -118,5 +133,23 @@ $(document).ready(function() {
     <br>
   </footer>
 </div>
+<script>
+        const SESSION_TIMEOUT = 50 * 1000; // 10 seconds in milliseconds
+        let lastActivity = Date.now();
+
+        // Function to check for session expiration
+        function checkSession() {
+            if (Date.now() - lastActivity > SESSION_TIMEOUT) {
+                window.location.href = './session_cleanup.php'; // Redirect if session expired
+            }
+        }
+
+        // Set interval to check session every 10 seconds
+        setInterval(checkSession, 5000);
+
+        // Update last activity on any user interaction
+        window.addEventListener('mousemove', () => { lastActivity = Date.now(); });
+        window.addEventListener('keypress', () => { lastActivity = Date.now(); });
+    </script>
 </body>
 </html>
