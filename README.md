@@ -7,6 +7,6 @@ Steps to Execute the program using Xampp:
 1. Run the SQL code in xampp console
 2. All files placed in a file inside htdocs in Xampp
 3. Run it using localhost after starting apache and sql servers:
-  The patient uses- index.html
-  The doctor uses- doc.php
+  The patient uses- index file
+  The doctor uses- doc file
 4. If not using localhost for testing/ for more security, make sure to setup config.php with your credentials
