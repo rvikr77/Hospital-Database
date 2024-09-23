@@ -1,6 +1,6 @@
 # Hospital Database
-Developed a website using HTML, CSS, JavaScript, PHP and MySQL. Could be used in hospitals by doctors and patients to save time.
-
+Developed a website using HTML, CSS, JavaScript,AJAX, PHP and MySQL. Could be used in hospitals by doctors and patients to save time.
+Implemented REST API for backend code to interact with database 
 Stores data in hospital and storage tables.
 
 Steps to Execute the program using Xampp:
