@@ -9,4 +9,4 @@ Steps to Execute the program using Xampp:
 3. Run it using localhost after starting apache and sql servers:
   The patient uses- index.html
   The doctor uses- doc.php
-4. If not using localhost for testing, make sure to setup config.php with your credentials
+4. If not using localhost for testing/ for more security, make sure to setup config.php with your credentials
