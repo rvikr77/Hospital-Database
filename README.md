@@ -2,7 +2,7 @@
 Developed a website using HTML, CSS, JavaScript, Ajax, PHP and MySQL. Could be used in hospitals by doctors and patients to save time.
 
 Stores data in hospital and storage tables.
-Implemented REST API for all database actions
+Implemented REST API for all database actions.
 Steps to Execute the program using Xampp:
 1. Run the SQL code in xampp console
 2. All files placed in a file inside htdocs in Xampp
