@@ -1,5 +1,5 @@
 # Hospital Database
-Developed a website using HTML, CSS, JavaScript,Ajax, PHP and MySQL. Could be used in hospitals by doctors and patients to save time.
+Developed a website using HTML, CSS, JavaScript, Ajax, PHP and MySQL. Could be used in hospitals by doctors and patients to save time.
 
 Stores data in hospital and storage tables.
 
