@@ -13,3 +13,4 @@ Steps to Execute the program using Xampp:
   The doctor uses- doc file
 4. If not using localhost for testing/ for more security, make sure to setup config.php with your credentials
 5. Doc.php will routinely update every 60 seconds to update patients
+6. Used composite index for hospital and storage for faster fetch speeds
