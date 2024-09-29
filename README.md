@@ -1,4 +1,5 @@
 # Hospital Database
+Read privacy-policy-terms before proceeding.
 Developed a website using HTML, CSS, JavaScript, Ajax, PHP and MySQL. Could be used in hospitals by doctors and patients to save time.
 Used role-based access control (RBAC) to ensure secure handling of patient data 
 Stores data in hospital and storage tables.
