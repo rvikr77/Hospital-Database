@@ -1,0 +1,46 @@
+Privacy Policy for Hospital Patient Database Project
+
+Introduction
+This Privacy Policy outlines how the Hospital Patient Database Project ("we", "us", or "our") collects, uses, and manages data in compliance with applicable privacy laws. This project is a personal, non-commercial application developed to maintain a hospital patient database for a doctor, with the goal of reducing prospective wait times among patients.
+
+1. Data Collection
+The Hospital Patient Database Project collects and processes the following types of data:
+
+Patient names
+Contact information
+Medical history
+Appointment details
+This data is collected to maintain an efficient patient management system and improve service delivery.
+
+2. Data Storage and Retention
+Collected data is securely stored in a MySQL database. Key points regarding data storage include:
+
+All patient data is stored locally on the server hosting the application.
+Data will be retained only for as long as necessary to fulfill its purpose, after which it will be securely deleted.
+3. Data Sharing
+We do not share, sell, or disclose any patient data to third parties. Patient information is strictly handled within the application and is only accessible to authorized users (e.g., the doctor).
+
+4. Data Usage
+The collected patient data is utilized exclusively for the following purposes:
+
+Managing patient records
+Scheduling appointments
+Improving service delivery
+Data will not be used for any other purposes without the explicit consent of the patients involved.
+
+5. Images
+Utilized images from Pixabay and Pexels solely for educational purposes, ensuring compliance with their respective licensing agreements.
+
+6. Security Measures
+We employ the following security measures to protect patient data:
+
+Role-based access control (RBAC) to ensure that only authorized personnel can access sensitive patient information.
+Secure coding practices to prevent unauthorized access and data breaches.
+
+7. Children's Privacy
+This project is not intended for children under the age of 13. We do not knowingly collect personal information from children. If we learn that we have collected such data, we will take steps to delete it.
+8. Acknowledgment
+By using this project, you acknowledge and agree that the patient data collected is utilized solely for personal and non-commercial purposes related to the effective management of patient records.
+
+9. Questions and Concerns
+If you have any questions or concerns regarding this Privacy Policy or the handling of data in this project, please don't hesitate to contact.
